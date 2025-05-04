@@ -38,3 +38,8 @@
 CMakeFiles/
 *.cmake
 CMakeCache.txt
+build/
+
+#Other
+
+.vscode/
