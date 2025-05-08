@@ -4,7 +4,7 @@ int main(int argc, char* argv[]) {
     const int screenWidth = 1280;
     const int screenHeight = 720;
 
-    InitWindow(screenWidth, screenHeight, "Elysium -Kiseki Battle Simulator-");
+    InitWindow(screenWidth, screenHeight, "Elysium -Kiseki Battle Simulator");
 
     SetTargetFPS(60);
 

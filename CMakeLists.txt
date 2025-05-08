@@ -22,7 +22,7 @@ if (NOT raylib_FOUND) # If there's none, fetch and build raylib
 endif()
 
 # Create executables
-add_executable(${PROJECT_NAME} src/game/main.cpp)
+add_executable(${PROJECT_NAME} src/simulator/main.cpp)
 target_link_libraries(${PROJECT_NAME} raylib)
 
 add_executable(installer src/installer/main.cpp)
