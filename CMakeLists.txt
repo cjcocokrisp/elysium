@@ -21,8 +21,12 @@ if (NOT raylib_FOUND) # If there's none, fetch and build raylib
   endif()
 endif()
 
+# Add files
+file(GLOB INSTALLER_SOURCES "src/installer/*.cpp")
+
 # Create executables
 add_executable(${PROJECT_NAME} src/simulator/main.cpp)
 target_link_libraries(${PROJECT_NAME} raylib)
 
-add_executable(installer src/installer/main.cpp)
+add_executable(installer src/installer/main.cpp ${INSTALLER_SOURCES})
+target_link_libraries(installer raylib)
