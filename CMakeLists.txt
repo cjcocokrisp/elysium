@@ -3,7 +3,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 project(elysium VERSION 0.0)
 
-# Dependencies
+# Install Dependencies
 # Raylib from https://github.com/raysan5/raylib/blob/master/projects/CMake/CMakeLists.txt
 set(RAYLIB_VERSION 5.5)
 find_package(raylib ${RAYLIB_VERSION} QUIET) # QUIET or REQUIRED
@@ -21,6 +21,19 @@ if (NOT raylib_FOUND) # If there's none, fetch and build raylib
   endif()
 endif()
 
+# TOML++ from https://github.com/marzer/tomlplusplus
+set(TOMLPLUSPLUS_VERSION 3.4.0)
+find_package(tomlplusplus ${TOMLPLUSPLUS_VERSION} QUIET)
+if (NOT tomlplusplus_FOUND)
+include(FetchContent)
+FetchContent_Declare(
+    tomlplusplus
+    GIT_REPOSITORY https://github.com/marzer/tomlplusplus.git
+    GIT_TAG        v${TOMLPLUSPLUS_VERSION}
+)
+FetchContent_MakeAvailable(tomlplusplus)
+endif()
+
 # Add files
 file(GLOB INSTALLER_SOURCES "src/installer/*.cpp")
 
@@ -29,4 +42,4 @@ add_executable(${PROJECT_NAME} src/simulator/main.cpp)
 target_link_libraries(${PROJECT_NAME} raylib)
 
 add_executable(installer src/installer/main.cpp ${INSTALLER_SOURCES})
-target_link_libraries(installer raylib)
+target_link_libraries(installer raylib tomlplusplus::tomlplusplus)

@@ -1,0 +1,19 @@
+[general]
+style="2d" # for now only 2d is supported, 3d may be supported in the future
+dumped=false
+
+#TODO: Document structure of output and explain here
+[sprites]
+characters = ["estelle", "joshua"]
+
+[[sprites.dirs]]
+ANIMATIONNAME = { character = "CHARACTERNAME", path = "PATHTOSPRITEDIR", output = "NAMEOFOUTPUT" }
+attacking = { character = "estelle", path = "test2", output = "attacking" }
+
+#TODO: DEFINE
+[ui]
+
+#TODO: DEFINE MORE OF
+[music]
+bgm_path="./"
+battle_tracks = ["LIST OF TRACKS"]

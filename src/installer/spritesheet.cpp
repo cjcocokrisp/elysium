@@ -1,6 +1,5 @@
-#include <iostream>
-#include "raylib.h"
 #include "spritesheet.hpp"
+#include "raylib.h"
 
 namespace fs = std::filesystem;
 
